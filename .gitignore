@@ -166,6 +166,5 @@ dist
 infra/ma_cle.pem
 express-server-sshKey.pem
 accessEc2Florian.pem
-infra/init-script.sh
-infra/ec2.tf
+infra/ec2API.tf
 infra/.terraform.lock.hcl
