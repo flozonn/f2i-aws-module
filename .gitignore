@@ -168,3 +168,6 @@ express-server-sshKey.pem
 accessEc2Florian.pem
 infra/ec2API.tf
 infra/.terraform.lock.hcl
+apiLambdaVersion/.DS_Store
+.DS_Store
+apiLambdaVersion/.terraform.lock.hcl

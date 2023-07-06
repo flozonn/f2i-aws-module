@@ -79,4 +79,4 @@ output "arn_ec2" {
 }
 
 // to get the private key 
-// terraform output private_key > ec2sshkey.pem
+// terraform output -raw private_key > ec2sshkey.pem
