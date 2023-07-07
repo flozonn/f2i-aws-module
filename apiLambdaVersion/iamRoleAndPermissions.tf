@@ -41,6 +41,12 @@ resource "aws_iam_policy" "dynamodb_policy" {
         "dynamodb:GetItem"
       ],
       "Resource": "arn:aws:dynamodb:eu-west-3:830262831474:table/randomTable"
+    },
+    {
+        "Sid": "AllObjectActions",
+        "Effect": "Allow",
+        "Action": "s3:*Object",
+        "Resource": ["${aws_s3_bucket.apiBucket.arn}/*"]
     }
   ]
 }
