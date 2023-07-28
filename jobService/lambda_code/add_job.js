@@ -13,7 +13,7 @@ exports.handler = async (event) => {
 
         // Préparer les paramètres pour l'insertion dans DynamoDB
         const params = {
-            TableName: 'randomTable', // Remplacez par le nom de votre table DynamoDB
+            TableName: 'job_table', 
             Item: {
                 id: requestBody.id, 
                 ...requestBody

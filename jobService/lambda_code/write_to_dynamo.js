@@ -5,21 +5,21 @@ exports.handler = async (event) => {
 
     try {
         
-        console.log('LAMBDA déclenchée !');
-    
+        console.log('WRITE_TO_DYNAMO LAMBDA déclenchée ! ----> ', event.Records[0].dynamodb.NewImage);
+        const data = event.Records[0].dynamodb.NewImage;
         // Récupérer le corps de la requête
-        const requestBody = JSON.parse(event.body);
-        console.log('requestBody --> ', requestBody);
+        const requestBody = AWS.DynamoDB.Converter.unmarshall(data);
+        console.log('WRITE_TO_DYNAMO requestBody --> ', requestBody);
 
         // Préparer les paramètres pour l'insertion dans DynamoDB
         const params = {
-            TableName: 'randomTable', // Remplacez par le nom de votre table DynamoDB
+            TableName: 'content_table', 
             Item: {
                 id: requestBody.id, 
                 ...requestBody
             }
         };
-        console.log('params --> ', params);
+        console.log('WRITE_TO_DYNAMO params --> ', params);
         
         // Insérer les données dans DynamoDB
         const res = await dynamodb.put(params).promise();
