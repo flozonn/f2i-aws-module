@@ -7,7 +7,6 @@ exports.handler = async (event) => {
     console.log('event --> ', event);
     console.log('LAMBDA declenchée ! ');
 
-
     try {
         const queryBody = JSON.parse(event.body)
 

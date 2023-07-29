@@ -2,6 +2,7 @@ resource "aws_lambda_event_source_mapping" "lambda_dynamodb_trigger" {
   event_source_arn = aws_dynamodb_table.job_table.stream_arn
   function_name    = aws_lambda_function.write_to_dynamo.function_name
   starting_position = "LATEST"
+  batch_size = 1
 }
 
 resource "aws_lambda_function" "write_to_dynamo" {
