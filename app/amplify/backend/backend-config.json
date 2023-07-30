@@ -1,4 +1,20 @@
 {
+  "api": {
+    "apiMonitoring": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "awsmonitoringe607d108"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "auth": {
     "awsmonitoring96fe4512": {
       "customAuth": false,
@@ -28,6 +44,14 @@
       "service": "Cognito"
     }
   },
+  "function": {
+    "awsmonitoringe607d108": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "hosting": {
     "amplifyhosting": {
       "providerPlugin": "awscloudformation",
@@ -36,6 +60,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_awsmonitoringe607d108_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "awsmonitoringe607d108"
+        }
+      ]
+    },
+    "AMPLIFY_function_awsmonitoringe607d108_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "awsmonitoringe607d108"
+        }
+      ]
+    },
     "AMPLIFY_hosting_amplifyhosting_appId": {
       "usedBy": [
         {

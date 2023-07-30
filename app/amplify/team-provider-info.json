@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-awsmonitoring-dev-171335-unauthRole",
       "StackName": "amplify-awsmonitoring-dev-171335",
       "StackId": "arn:aws:cloudformation:us-east-1:830262831474:stack/amplify-awsmonitoring-dev-171335/7e314cf0-2e22-11ee-95b8-12d2265f0c07",
-      "AmplifyAppId": "d1ji1uwdjnpd98"
+      "AmplifyAppId": "d1ji1uwdjnpd98",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-awsmonitoring-dev-171335-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "hosting": {
@@ -20,6 +21,15 @@
       },
       "auth": {
         "awsmonitoring96fe4512": {}
+      },
+      "function": {
+        "awsmonitoringe607d108": {
+          "deploymentBucketName": "amplify-awsmonitoring-dev-171335-deployment",
+          "s3Key": "amplify-builds/awsmonitoringe607d108-564c4976697865377755-build.zip"
+        }
+      },
+      "api": {
+        "apiMonitoring": {}
       }
     }
   }

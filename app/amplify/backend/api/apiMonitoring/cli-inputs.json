@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "paths": {
+    "/ressources": {
+      "name": "/ressources",
+      "lambdaFunction": "awsmonitoringe607d108",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read"
+        ]
+      }
+    }
+  }
+}

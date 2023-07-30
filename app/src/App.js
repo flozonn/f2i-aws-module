@@ -1,23 +1,61 @@
 /* src/App.js */
-import React, { } from 'react'
-import { Amplify, } from 'aws-amplify'
+import React, { useEffect, useState } from 'react'
+import { Amplify, API } from 'aws-amplify'
 
 import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 
 import awsExports from "./aws-exports";
-Amplify.configure(awsExports);
+Amplify.configure(
+  {
+    ...awsExports,
+    API: {
+      endpoints: [
+        {
+          name: "apiMonitoring",
+          endpoint: "https://cm1o5mrycb.execute-api.us-east-1.amazonaws.com/dev",
+          region: "us-east-1",
+        },
+      ],
+    },
+  }
+);
 
 
 const App = ({ signOut, user }) => {
+  const [ressources, setRessources] = useState(null);
 
+  const fetchApiData = async () => {
+    try {
+      const response = await API.get('apiMonitoring', '/ressources');
+      console.log('response AAAA A', response);
+      setRessources(response);
+    } catch (error) {
+      console.error('Error fetching API data:', error);
+    }
+  };
 
+  useEffect(() => {
+    fetchApiData();
+  }, []);
 
   return (
     <div style={styles.container}>
-      <Heading level={1}>Hello {user.username}</Heading>
+      <Heading level={1}>Hello {user.attributes.email}</Heading>
       <Button onClick={signOut} style={styles.button}>Sign out</Button>
       <h2>Amplify App</h2>
+
+
+
+      <button onClick={fetchApiData} style={styles.button} >Charger les données de l'API</button>
+      {ressources && (
+        <div>
+          <h2>Résultat de l'appel API :</h2>
+          <pre>{JSON.stringify(ressources, null, 2)}</pre>
+          <pre>{JSON.stringify(user.attributes.email, null, 2)}</pre>
+        </div>
+      )}
+
     </div>
   )
 }

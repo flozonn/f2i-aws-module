@@ -4,8 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Amplify } from 'aws-amplify';
-import awsExports from './aws-exports';
-Amplify.configure(awsExports);
+import awsExports from "./aws-exports";
+Amplify.configure(
+  {
+    ...awsExports,
+    API: {
+      endpoints: [
+        {
+          name: "apiMonitoring",
+          endpoint: "https://cm1o5mrycb.execute-api.us-east-1.amazonaws.com/dev",
+          region: "us-east-1",
+        },
+      ],
+    },
+  }
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
