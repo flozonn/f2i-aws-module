@@ -202,61 +202,61 @@ const App = ({ signOut, user }) => {
           )}
         </Grid>
 
+        <Grid item container xs={6}>
+          <Grid item xs={12} >
+            <input type="file" onChange={handleFileChange} style={styles.fileInput} id="fileInput" />
+            <label htmlFor="fileInput">
+              <Button variant="contained" component="span" style={styles.button}>
+                Choisir un fichier
+              </Button>
+              <Button variant="primary" onClick={handleUpload} disabled={uploading} style={styles.buttonInverted} >
+                {uploading ? <Typography>Téléchargement en cours...</Typography> : "Télécharger"}
+              </Button>
+            </label>
+            {s3files && (
+              s3files?.results?.map((file) => (
+                <Paper elevation={3} style={styles.paper}>
 
-        <Grid item xs={6} >
-          <input type="file" onChange={handleFileChange} style={styles.fileInput} id="fileInput" />
-          <label htmlFor="fileInput">
-            <Button variant="contained" component="span" style={styles.button}>
-              Choisir un fichier
-            </Button>
-            <Button variant="primary" onClick={handleUpload} disabled={uploading} style={styles.buttonInverted} >
-              {uploading ? <Typography>Téléchargement en cours...</Typography> : "Télécharger"}
-            </Button>
-          </label>
-          {s3files && (
-            s3files?.results?.map((file) => (
-              <Paper elevation={3} style={styles.paper}>
+                  <Typography key={file.key}>{file.key}</Typography>
+                  <IconButton
+                    color="secondary"
+                    aria-label="Supprimer"
+                    style={styles.deleteIcon}
+                    onClick={() => handleDelete(file.key)} // Mettez ici la fonction pour supprimer le fichier
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                </Paper>
 
-                <Typography key={file.key}>{file.key}</Typography>
-                <IconButton
-                  color="secondary"
-                  aria-label="Supprimer"
-                  style={styles.deleteIcon}
-                  onClick={() => handleDelete(file.key)} // Mettez ici la fonction pour supprimer le fichier
-                >
-                  <DeleteIcon />
-                </IconButton>
-              </Paper>
+              ))
+            )}
+          </Grid>
+          <Grid item xs={12}>
+            <form onSubmit={handleSubmitEmail}>
+              <label htmlFor="destinataire">Destinataire (email) :</label>
+              <input
+                type="email"
+                id="destinataire"
+                value={destinataire}
+                onChange={(e) => setDestinataire(e.target.value)}
+                required
+              />
+              <br />
 
-            ))
-          )}
+              <label htmlFor="contenu">Contenu du mail :</label>
+              <textarea
+                id="contenu"
+                value={contenuMail}
+                onChange={(e) => setContenuMail(e.target.value)}
+                required
+              />
+              <br />
+
+              <input type="submit" value="Envoyer" style={styles.button} />
+            </form>
+          </Grid>
+
         </Grid>
-
-        <Grid item xs={12}>
-          <form onSubmit={handleSubmitEmail}>
-            <label htmlFor="destinataire">Destinataire (email) :</label>
-            <input
-              type="email"
-              id="destinataire"
-              value={destinataire}
-              onChange={(e) => setDestinataire(e.target.value)}
-              required
-            />
-            <br />
-
-            <label htmlFor="contenu">Contenu du mail :</label>
-            <textarea
-              id="contenu"
-              value={contenuMail}
-              onChange={(e) => setContenuMail(e.target.value)}
-              required
-            />
-            <br />
-
-            <input type="submit" value="Envoyer" style={styles.button} />
-          </form>
-        </Grid>
-
 
       </Grid>
     </div>
