@@ -16,7 +16,7 @@ exports.handler = async (event, context) => {
 
             const s3Buckets = await s3.listBuckets().promise();
             console.log('s3Buckets --> ', s3Buckets);
-            resourcesByRegion[region].s3Buckets = s3Buckets.Buckets.length;
+            resourcesByRegion[region].s3Buckets = s3Buckets.Buckets;
 
             // Add more AWS service API calls as needed for other resource types
         }

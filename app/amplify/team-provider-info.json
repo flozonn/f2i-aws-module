@@ -25,11 +25,38 @@
       "function": {
         "awsmonitoringe607d108": {
           "deploymentBucketName": "amplify-awsmonitoring-dev-171335-deployment",
-          "s3Key": "amplify-builds/awsmonitoringe607d108-564c4976697865377755-build.zip"
+          "s3Key": "amplify-builds/awsmonitoringe607d108-7a622f6952672b415641-build.zip"
+        },
+        "messageToSendTrigger1152909e": {
+          "deploymentBucketName": "amplify-awsmonitoring-dev-171335-deployment",
+          "s3Key": "amplify-builds/messageToSendTrigger1152909e-6f495858437670425a38-build.zip"
+        },
+        "stackMails": {
+          "deploymentBucketName": "amplify-awsmonitoring-dev-171335-deployment",
+          "s3Key": "amplify-builds/stackMails-69545531584b2b696b48-build.zip"
         }
       },
       "api": {
         "apiMonitoring": {}
+      },
+      "storage": {
+        "appUserStorage": {},
+        "messageToSend": {}
+      },
+      "analytics": {
+        "awsmonitoring": {},
+        "Pinpoint": {
+          "Name": "awsmonitoring-dev",
+          "Id": "1d9facb11a154699bf3bccc3ec401026",
+          "Region": "us-east-1"
+        }
+      },
+      "notifications": {
+        "Pinpoint": {
+          "Name": "awsmonitoring-dev",
+          "Id": "1d9facb11a154699bf3bccc3ec401026",
+          "Region": "us-east-1"
+        }
       }
     }
   }

@@ -1,0 +1,21 @@
+{
+  "appName": "awsmonitoring",
+  "roleName": "pinpointLambdaRole4d75dfc7",
+  "cloudformationPolicyName": "cloudformationPolicy4d75dfc7",
+  "cloudWatchPolicyName": "cloudWatchPolicy4d75dfc7",
+  "pinpointPolicyName": "pinpointPolicy4d75dfc7",
+  "authPolicyName": "pinpoint_amplify_4d75dfc7",
+  "unauthPolicyName": "pinpoint_amplify_4d75dfc7",
+  "authRoleName": {
+    "Ref": "AuthRoleName"
+  },
+  "unauthRoleName": {
+    "Ref": "UnauthRoleName"
+  },
+  "authRoleArn": {
+    "Fn::GetAtt": [
+      "AuthRole",
+      "Arn"
+    ]
+  }
+}

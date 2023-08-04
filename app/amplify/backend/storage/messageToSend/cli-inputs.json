@@ -1,0 +1,12 @@
+{
+  "resourceName": "messageToSend",
+  "tableName": "messageToSend",
+  "partitionKey": {
+    "fieldName": "messageContent",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": [
+    "messageToSendTrigger1152909e"
+  ]
+}

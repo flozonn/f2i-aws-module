@@ -1,4 +1,10 @@
 {
+  "analytics": {
+    "awsmonitoring": {
+      "providerPlugin": "awscloudformation",
+      "service": "Pinpoint"
+    }
+  },
   "api": {
     "apiMonitoring": {
       "dependsOn": [
@@ -9,6 +15,14 @@
           ],
           "category": "function",
           "resourceName": "awsmonitoringe607d108"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "stackMails"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -50,6 +64,28 @@
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "messageToSendTrigger1152909e": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "messageToSend"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "stackMails": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "hosting": {
@@ -59,7 +95,33 @@
       "type": "manual"
     }
   },
+  "interactions": {},
+  "notifications": {},
   "parameters": {
+    "AMPLIFY_analytics_Pinpoint_Id": {
+      "usedBy": [
+        {
+          "category": "analytics",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    },
+    "AMPLIFY_analytics_Pinpoint_Name": {
+      "usedBy": [
+        {
+          "category": "analytics",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    },
+    "AMPLIFY_analytics_Pinpoint_Region": {
+      "usedBy": [
+        {
+          "category": "analytics",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    },
     "AMPLIFY_function_awsmonitoringe607d108_deploymentBucketName": {
       "usedBy": [
         {
@@ -73,6 +135,38 @@
         {
           "category": "function",
           "resourceName": "awsmonitoringe607d108"
+        }
+      ]
+    },
+    "AMPLIFY_function_messageToSendTrigger1152909e_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "messageToSendTrigger1152909e"
+        }
+      ]
+    },
+    "AMPLIFY_function_messageToSendTrigger1152909e_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "messageToSendTrigger1152909e"
+        }
+      ]
+    },
+    "AMPLIFY_function_stackMails_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "stackMails"
+        }
+      ]
+    },
+    "AMPLIFY_function_stackMails_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "stackMails"
         }
       ]
     },
@@ -91,6 +185,41 @@
           "resourceName": "amplifyhosting"
         }
       ]
+    },
+    "AMPLIFY_notifications_Pinpoint_Id": {
+      "usedBy": [
+        {
+          "category": "notifications",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    },
+    "AMPLIFY_notifications_Pinpoint_Name": {
+      "usedBy": [
+        {
+          "category": "notifications",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    },
+    "AMPLIFY_notifications_Pinpoint_Region": {
+      "usedBy": [
+        {
+          "category": "notifications",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "appUserStorage": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    },
+    "messageToSend": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
     }
   }
 }

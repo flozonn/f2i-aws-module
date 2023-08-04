@@ -11,6 +11,19 @@
           "read"
         ]
       }
+    },
+    "/sendMail": {
+      "name": "/sendMail",
+      "lambdaFunction": "stackMails",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
     }
   }
 }
