@@ -4,7 +4,7 @@ Bienvenue dans le module AWS cloud computing.
 Ce repo contient les scripts et fichiers associés aux [cours](https://www.notion.so/AWS-cloud-computing-014d4f12a07f407285c1999855c93ffc?pvs=4).
 
 ## **scriptsUsingSdk/**
-  - 📖 [cours](https://www.notion.so/COURS-Les-diff-rentes-fa-ons-d-interagir-avec-AWS-e0ad210e34f84e7d884183c12db8b972?pvs=4#d94806a9985d4edc98a195ef32527fbb)
+  - 📖 [cours accès aws](https://www.notion.so/COURS-Les-diff-rentes-fa-ons-d-interagir-avec-AWS-e0ad210e34f84e7d884183c12db8b972?pvs=4#d94806a9985d4edc98a195ef32527fbb)
   - [listBucketsAndEc2.js](scriptsUsingSdk/listBucketsAndEc2.js) --> utilisation du SDK nodejs pour lister les ressources
   - [listS3.js](scriptsUsingSdk/listS3.js) --> utilisation du SDK nodejs pour lister les ressources
 
@@ -18,6 +18,7 @@ Ce repo contient les scripts et fichiers associés aux [cours](https://www.notio
 
 ## **apiLambdaVersion/**
   - 📖 [cours terraform](https://www.notion.so/COURS-Concepts-cl-s-de-terraform-ec84aaf8f0e54acab4a343091375122d?pvs=4#905f96bff82343128451d031f2533f3b)
+  - 📖 [cours lambda](https://www.notion.so/COURS-Lambda-et-Serverless-dfc974b63b904edfb5190bf745fe86dd?pvs=4#253db483914c4818b6696dddd3c72190)
   - [provider.tf](apiLambdaVersion/provider.tf) --> Définition du provider = AWS
   - [apiGateway.tf](apiLambdaVersion/apiGateway.tf) --> Définition de l'API gateway servant 3 endpoints
   - [database.tf](apiLambdaVersion/database.tf) --> Définition de la base de données nécéssaire à l'API 
@@ -36,7 +37,8 @@ Ce repo contient les scripts et fichiers associés aux [cours](https://www.notio
   - [package.json](app/package.json) --> Fichier de définition des dépendances du projet
 
 ## **jobService/**
-  - 📖 [cours AMPLIFY](https://www.notion.so/COURS-TUTO-Amplify-CI-CD-69bbd1924cef4939b05c551f508c8174?pvs=4#ccf7000583194c119ed41fd00e712b96)
+  - 📖 [cours terraform](https://www.notion.so/COURS-Concepts-cl-s-de-terraform-ec84aaf8f0e54acab4a343091375122d?pvs=4#905f96bff82343128451d031f2533f3b)
+  - 📖 [cours lambda](https://www.notion.so/COURS-Lambda-et-Serverless-dfc974b63b904edfb5190bf745fe86dd?pvs=4#253db483914c4818b6696dddd3c72190)
   - 👨🏼‍🏫 [TP archi event-driven](https://www.notion.so/TP-1-Architecture-v-nementielle-ef11ea81e6764ed484e7c8e695daa382?pvs=4#c50e9598a1d54574a5012b96e7ab2d91)
   - [lambda_code/](jobService/lambda_code) --> Fichiers NODEJS exécutés lors de l'appel aux 3 endpoints de l'API
   - [apiGateway.tf](jobService/apiGateway.tf) --> Définition de l'API gateway servant 3 endpoints
