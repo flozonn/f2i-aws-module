@@ -36,8 +36,6 @@ Ce repo contient les scripts et fichiers associés aux [cours](https://www.notio
   - [package.json](app/package.json) --> Fichier de définition des dépendances du projet
 
 ## **jobService/**
-![image](https://github.com/flozonn/f2i-aws-module/assets/74357383/ac1b412a-0178-433e-b841-d6db95790a96)
-
   - 📖 [cours AMPLIFY](https://www.notion.so/COURS-TUTO-Amplify-CI-CD-69bbd1924cef4939b05c551f508c8174?pvs=4#ccf7000583194c119ed41fd00e712b96)
   - 👨🏼‍🏫 [TP archi event-driven](https://www.notion.so/TP-1-Architecture-v-nementielle-ef11ea81e6764ed484e7c8e695daa382?pvs=4#c50e9598a1d54574a5012b96e7ab2d91)
   - [lambda_code/](jobService/lambda_code) --> Fichiers NODEJS exécutés lors de l'appel aux 3 endpoints de l'API
