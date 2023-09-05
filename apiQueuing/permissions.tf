@@ -95,7 +95,7 @@ data "aws_iam_policy_document" "sqs_lambda" {
   statement {
     sid       = "AllowSQSPermissions"
     effect    = "Allow"
-    resources = [aws_sqs_queue.messages_queue.arn]
+    resources = [aws_sqs_queue.messages_queue.arn,aws_sqs_queue.messages_warning_queue.arn]
 
     actions = [
       "sqs:ChangeMessageVisibility",

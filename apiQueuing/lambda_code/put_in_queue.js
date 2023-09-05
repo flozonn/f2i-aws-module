@@ -2,10 +2,17 @@ var AWS = require('aws-sdk');
 const sns = new AWS.SNS();
 
 exports.handler = async (event) => {
+    const body = JSON.parse(event.body);
     console.log('LAMBDA declenchée ! ');
     const params = {
         Message: 'Message to put in queue',
-        TopicArn: process.env.SNS_TOPIC_ARN
+        TopicArn: process.env.SNS_TOPIC_ARN,
+        MessageAttributes: {
+            'type'  : {
+                DataType: 'String',
+                StringValue: body.type
+            }
+        }
     };
     try {
         const result = await sns.publish(params).promise();
