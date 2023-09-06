@@ -1,18 +1,40 @@
 const AWS = require('aws-sdk');
+const comprehend = new AWS.Comprehend();
+const dynamodb = new AWS.DynamoDB();
 
 exports.handler = async (event) => {
-    const sqs = new AWS.SQS({ region: 'votre-region-AWS' });  // Remplacez par votre région AWS
-    const queueUrl = process.env.SQS_QUEUE_URL;
-
     try {
-        // Traitement des messages de la file d'attente
         for (const record of event.Records) {
             const messageBody = JSON.parse(record.body);
-
-            // Faites quelque chose avec le message (par exemple, imprimez-le)
+            const phrase = messageBody.MessageAttributes.phrase.Value;
+            const params = {
+                LanguageCode: 'fr',
+                Text: phrase,
+            };
+            console.log(params);
+            const t = await comprehend.detectEntities(params).promise();
+            if (t) {
+                const entitesNommees = t.Entities;
+                console.log('Entités nommées : ', entitesNommees);
+                for (const entite of entitesNommees) {
+                    //write to dynamodb
+                    const params = {
+                        TableName: "user_entities",
+                        Item: {
+                            'id': { S: record.messageId },
+                            'type': { S: messageBody.MessageAttributes.type.Value },
+                            'phrase': { S: phrase },
+                            'entite': { S: entite.Text },
+                            'score': { N: entite.Score.toString() },
+                        },
+                    };
+                    console.log('params to dynamo : ', params);
+                    const result = await dynamodb.putItem(params).promise();
+                    console.log('result : ', result);
+                }
+            }
             console.log('Message from SQS:', messageBody);
 
-            // Vous pouvez ajouter ici le code pour effectuer d'autres opérations
         }
 
         return {

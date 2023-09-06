@@ -126,6 +126,10 @@ data "aws_iam_policy_document" "sqs_lambda" {
     actions = [
       "logs:CreateLogStream",
       "logs:PutLogEvents",
+      "comprehend:DetectEntities",
+      "dynamodb:PutItem",
+      "dynamodb:UpdateItem",
+      "dynamodb:BatchWriteItem"
     ]
   }
 }

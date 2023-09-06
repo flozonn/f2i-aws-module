@@ -1,0 +1,14 @@
+{
+  "name": "lambda_code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "process_messages.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "flozonn",
+  "license": "ISC",
+  "dependencies": {
+    "aws-xray-sdk-core": "^3.5.1"
+  }
+}

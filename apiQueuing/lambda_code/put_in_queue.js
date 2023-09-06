@@ -1,4 +1,5 @@
-var AWS = require('aws-sdk');
+const AWSXRay = require('aws-xray-sdk-core')
+const AWS = AWSXRay.captureAWS(require('aws-sdk')) 
 const sns = new AWS.SNS();
 
 exports.handler = async (event) => {
@@ -11,6 +12,10 @@ exports.handler = async (event) => {
             'type'  : {
                 DataType: 'String',
                 StringValue: body.type
+            },
+            'phrase': {
+                DataType: 'String',
+                StringValue: body.phrase
             }
         }
     };
